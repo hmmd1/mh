@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Codes</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; background: #f9f9f9; }
+    h2 { color: #444; }
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-left: 5px solid #007acc;
+      overflow-x: auto;
+    }
+    button {
+      margin-bottom: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Code Collection</h1>
+
+  <h2>Python Example</h2>
+  <button onclick="copyCode('code1')">نسخ الكود</button>
+  <pre id="code1">
+def hello():
+    print("Hello, world!")
+  </pre>
+
+  <h2>C Example</h2>
+  <button onclick="copyCode('code2')">نسخ الكود</button>
+  <pre id="code2">
+#include <stdio.h>
+int main() {
+    printf("Hello, World!");
+    return 0;
+}
+  </pre>
+
+  <script>
+    function copyCode(id) {
+      const code = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        alert("تم نسخ الكود!");
+      });
+    }
+  </script>
+
+</body>
+</html>
