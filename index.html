@@ -1,50 +1,311 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>My Codes</title>
+  <title>مكتبتي البرمجية</title>
   <style>
-    body { font-family: sans-serif; margin: 20px; background: #f9f9f9; }
-    h2 { color: #444; }
+    body {
+      font-family: 'Courier New', monospace;
+      background: #1e1e1e;
+      color: #f1f1f1;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #00ffcc;
+    }
+    section {
+      margin-bottom: 40px;
+    }
     pre {
-      background: #eee;
-      padding: 10px;
-      border-left: 5px solid #007acc;
+      background: #2d2d2d;
+      padding: 15px;
+      border-radius: 10px;
       overflow-x: auto;
+      white-space: pre-wrap;
+      position: relative;
     }
     button {
-      margin-bottom: 5px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #00ffcc;
+      color: #000;
+      border: none;
       padding: 5px 10px;
       cursor: pointer;
+      border-radius: 5px;
+    }
+    .code-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    ul li {
+      padding: 5px 0;
     }
   </style>
 </head>
 <body>
 
-  <h1>My Code Collection</h1>
+  <h1>مكتبة الأكواد البرمجية</h1>
 
-  <h2>Python Example</h2>
-  <button onclick="copyCode('code1')">نسخ الكود</button>
-  <pre id="code1">
-def hello():
-    print("Hello, world!")
-  </pre>
+  <!-- جدول المحتويات -->
+  <h2>جدول المحتويات</h2>
+  <ul>
+    <li><a href="#python">1. Python</a></li>
+    <li><a href="#encryption">2. Encryption</a></li>
+    <li><a href="#database">3. Database</a></li>
+    <li><a href="#web">4. Web</a></li>
+    <li><a href="#os">5. OS</a></li>
+  </ul>
 
-  <h2>C Example</h2>
-  <button onclick="copyCode('code2')">نسخ الكود</button>
-  <pre id="code2">
-#include <stdio.h>
-int main() {
-    printf("Hello, World!");
-    return 0;
-}
-  </pre>
+  <!-- قسم Python -->
+  <section id="python">
+    <h2>🔹 أكواد Python</h2>
+    <div class="code-box">
+      <button onclick="copyCode('py1')">نسخ</button>
+      <pre id="py1">
+def greet(name):
+    print(f"Hello, {name}!")
+      </pre>
+    </div>
+  </section>
+
+  <!-- قسم Encryption -->
+  <section id="encryption">
+    <h2>🔹 أكواد التشفير</h2>
+    <div class="code-box">
+      <button onclick="copyCode('enc1')">نسخ</button>
+      <pre id="enc1">
+from cryptography.fernet import Fernet
+
+key = Fernet.generate_key()
+cipher = Fernet(key)
+
+text = "Secret message"
+cipher_text = cipher.encrypt(text.encode())
+print(cipher_text)
+      </pre>
+    </div>
+  </section>
+
+  <!-- قسم Database -->
+  <section id="database">
+    <h2>🔹 أكواد قواعد البيانات</h2>
+    <div class="code-box">
+      <button onclick="copyCode('db1')">نسخ</button>
+      <pre id="db1">
+import sqlite3
+
+connection = sqlite3.connect('example.db')
+cursor = connection.cursor()
+
+cursor.execute('''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)''')
+cursor.execute('''INSERT INTO users (name) VALUES ('John Doe')''')
+connection.commit()
+connection.close()
+      </pre>
+    </div>
+  </section>
+
+  <!-- قسم Web -->
+  <section id="web">
+    <h2>🔹 أكواد Web</h2>
+    <div class="code-box">
+      <button onclick="copyCode('web1')">نسخ</button>
+      <pre id="web1">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Hello&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+      </pre>
+    </div>
+  </section>
+
+  <!-- قسم OS -->
+  <section id="os">
+    <h2>🔹 أكواد النظام (OS)</h2>
+    <div class="code-box">
+      <button onclick="copyCode('os1')">نسخ</button>
+      <pre id="os1">
+import os
+
+# طباعة جميع الملفات في الدليل الحالي
+files = os.listdir('.')
+for file in files:
+    print(file)
+      </pre>
+    </div>
+  </section>
 
   <script>
     function copyCode(id) {
-      const code = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        alert("تم نسخ الكود!");
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("✅ تم نسخ الكود!");
+      });
+    }
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>مكتبتي البرمجية</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background: #1e1e1e;
+      color: #f1f1f1;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #00ffcc;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    pre {
+      background: #2d2d2d;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      position: relative;
+    }
+    button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #00ffcc;
+      color: #000;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .code-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    ul li {
+      padding: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>مكتبة الأكواد البرمجية</h1>
+
+  <!-- جدول المحتويات -->
+  <h2>جدول المحتويات</h2>
+  <ul>
+    <li><a href="#python">1. Python</a></li>
+    <li><a href="#encryption">2. Encryption</a></li>
+    <li><a href="#database">3. Database</a></li>
+    <li><a href="#web">4. Web</a></li>
+    <li><a href="#os">5. OS</a></li>
+  </ul>
+
+  <!-- قسم Python -->
+  <section id="python">
+    <h2>🔹 أكواد Python</h2>
+    <div class="code-box">
+      <button onclick="copyCode('py1')">نسخ</button>
+      <pre id="py1">
+def greet(name):
+    print(f"Hello, {name}!")
+      </pre>
+    </div>
+  </section>
+
+  <!-- قسم Encryption -->
+  <section id="encryption">
+    <h2>🔹 أكواد التشفير</h2>
+    <div class="code-box">
+      <button onclick="copyCode('enc1')">نسخ</button>
+      <pre id="enc1">
+from cryptography.fernet import Fernet
+
+key = Fernet.generate_key()
+cipher = Fernet(key)
+
+text = "Secret message"
+cipher_text = cipher.encrypt(text.encode())
+print(cipher_text)
+      </pre>
+    </div>
+  </section>
+
+  <!-- قسم Database -->
+  <section id="database">
+    <h2>🔹 أكواد قواعد البيانات</h2>
+    <div class="code-box">
+      <button onclick="copyCode('db1')">نسخ</button>
+      <pre id="db1">
+import sqlite3
+
+connection = sqlite3.connect('example.db')
+cursor = connection.cursor()
+
+cursor.execute('''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)''')
+cursor.execute('''INSERT INTO users (name) VALUES ('John Doe')''')
+connection.commit()
+connection.close()
+      </pre>
+    </div>
+  </section>
+
+  <!-- قسم Web -->
+  <section id="web">
+    <h2>🔹 أكواد Web</h2>
+    <div class="code-box">
+      <button onclick="copyCode('web1')">نسخ</button>
+      <pre id="web1">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Hello&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+      </pre>
+    </div>
+  </section>
+
+  <!-- قسم OS -->
+  <section id="os">
+    <h2>🔹 أكواد النظام (OS)</h2>
+    <div class="code-box">
+      <button onclick="copyCode('os1')">نسخ</button>
+      <pre id="os1">
+import os
+
+# طباعة جميع الملفات في الدليل الحالي
+files = os.listdir('.')
+for file in files:
+    print(file)
+      </pre>
+    </div>
+  </section>
+
+  <script>
+    function copyCode(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("✅ تم نسخ الكود!");
       });
     }
   </script>
