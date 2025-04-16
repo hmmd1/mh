@@ -1,314 +1,267 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>مكتبتي البرمجية</title>
-  <style>
-    body {
-      font-family: 'Courier New', monospace;
-      background: #1e1e1e;
-      color: #f1f1f1;
-      padding: 20px;
-    }
-    h1, h2 {
-      color: #00ffcc;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    pre {
-      background: #2d2d2d;
-      padding: 15px;
-      border-radius: 10px;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      position: relative;
-    }
-    button {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: #00ffcc;
-      color: #000;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .code-box {
-      position: relative;
-      margin-bottom: 20px;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    ul li {
-      padding: 5px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكواد البرمجة</title>
+    <style>
+        body { font-family: Arial, sans-serif; direction: rtl; }
+        h2 { color: #2E8B57; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; }
+        button { margin-top: 10px; background-color: #4CAF50; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .code-box { margin-bottom: 20px; }
+        nav ul { list-style-type: none; padding: 0; }
+        nav ul li { display: inline; margin-right: 20px; }
+        nav a { text-decoration: none; color: #4CAF50; font-weight: bold; }
+        nav a:hover { color: #45a049; }
+    </style>
+    <script>
+        function copyCode(id) {
+            var copyText = document.getElementById(id);
+            var range = document.createRange();
+            range.selectNode(copyText);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand("copy");
+        }
+    </script>
 </head>
 <body>
+    <h1>أكواد البرمجة</h1>
 
-  <h1>مكتبة الأكواد البرمجية</h1>
+    <nav>
+        <ul>
+            <li><a href="#Python">Python</a></li>
+            <li><a href="#Encryption">تشفير</a></li>
+            <li><a href="#Database">Database</a></li>
+            <li><a href="#Web">ويب</a></li>
+            <li><a href="#OS">نظام التشغيل</a></li>
+        </ul>
+    </nav>
 
-  <!-- جدول المحتويات -->
-  <h2>جدول المحتويات</h2>
-  <ul>
-    <li><a href="#python">1. Python</a></li>
-    <li><a href="#encryption">2. Encryption</a></li>
-    <li><a href="#database">3. Database</a></li>
-    <li><a href="#web">4. Web</a></li>
-    <li><a href="#os">5. OS</a></li>
-  </ul>
+    <section id="Python">
+        <h2>Python</h2>
+        <p>أكواد خاصة بلغة البرمجة Python</p>
+    </section>
 
-  <!-- قسم Python -->
-  <section id="python">
-    <h2>🔹 أكواد Python</h2>
-    <div class="code-box">
-      <button onclick="copyCode('py1')">نسخ</button>
-      <pre id="py1">
-def greet(name):
-    print(f"Hello, {name}!")
-      </pre>
-    </div>
-  </section>
+    <section id="Encryption">
+        <h2>تشفير</h2>
+        <ul>
+            <li><a href="#encryption1">التشفير باستخدام مصفوفة (Array-Based Encryption)</a></li>
+            <li><a href="#decryption1">فك التشفير باستخدام مصفوفة (Array-Based Decryption)</a></li>
+            <li><a href="#encryption2">التشفير باستخدام string (String-Based Encryption)</a></li>
+            <li><a href="#decryption2">فك التشفير باستخدام string (String-Based Decryption)</a></li>
+            <li><a href="#encryption3">التشفير باستخدام ASCII المباشر (Direct ASCII Encryption)</a></li>
+            <li><a href="#decryption3">فك التشفير باستخدام ASCII المباشر (Direct ASCII Decryption)</a></li>
+        </ul>
 
-  <!-- قسم Encryption -->
-  <section id="encryption">
-    <h2>🔹 أكواد التشفير</h2>
-    <div class="code-box">
-      <button onclick="copyCode('enc1')">نسخ</button>
-      <pre id="enc1">
-from cryptography.fernet import Fernet
+        <section id="encryption1">
+            <h3>التشفير باستخدام مصفوفة (Array-Based Encryption)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('enc1')">نسخ</button>
+                <pre id="enc1">
+#include<iostream>
+using namespace std;
 
-key = Fernet.generate_key()
-cipher = Fernet(key)
+int main()
+{
+    char e,p[100];
+    int i,key,n;
 
-text = "Secret message"
-cipher_text = cipher.encrypt(text.encode())
-print(cipher_text)
-      </pre>
-    </div>
-  </section>
+    cout<<"Enter the Key Number : ";
+    cin>>key;
+    cout<<"Enter the Length of Plaintext :";
+    cin>>n;
+    cout<<"Enter the Characters of Plaintext :";
 
-  <!-- قسم Database -->
-  <section id="database">
-    <h2>🔹 أكواد قواعد البيانات</h2>
-    <div class="code-box">
-      <button onclick="copyCode('db1')">نسخ</button>
-      <pre id="db1">
-import sqlite3
+    for(i=0;i<n;i++)
+        cin>>p[i];  
 
-connection = sqlite3.connect('example.db')
-cursor = connection.cursor()
-
-cursor.execute('''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)''')
-cursor.execute('''INSERT INTO users (name) VALUES ('John Doe')''')
-connection.commit()
-connection.close()
-      </pre>
-    </div>
-  </section>
-
-  <!-- قسم Web -->
-  <section id="web">
-    <h2>🔹 أكواد Web</h2>
-    <div class="code-box">
-      <button onclick="copyCode('web1')">نسخ</button>
-      <pre id="web1">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;&lt;title&gt;Hello&lt;/title&gt;&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Welcome!&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-      </pre>
-    </div>
-  </section>
-
-  <!-- قسم OS -->
-  <section id="os">
-    <h2>🔹 أكواد النظام (OS)</h2>
-    <div class="code-box">
-      <button onclick="copyCode('os1')">نسخ</button>
-      <pre id="os1">
-import os
-
-# طباعة جميع الملفات في الدليل الحالي
-files = os.listdir('.')
-for file in files:
-    print(file)
-      </pre>
-    </div>
-  </section>
-
-  <script>
-    function copyCode(id) {
-      const text = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("✅ تم نسخ الكود!");
-      });
+    for(i=0;i<n;i++)
+    {
+        e= (p[i]-'A'+key)%26+'A';
+        cout<<p[i]-'A'<< " = "<< p[i]<< "  -------> "<< e << " = "<< (p[i]-'A'+key)%26<<"\n";
     }
-  </script>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>مكتبتي البرمجية</title>
-  <style>
-    body {
-      font-family: 'Courier New', monospace;
-      background: #1e1e1e;
-      color: #f1f1f1;
-      padding: 20px;
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+
+        <section id="decryption1">
+            <h3>فك التشفير باستخدام مصفوفة (Array-Based Decryption)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('dec1')">نسخ</button>
+                <pre id="dec1">
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    char d,p[100];
+    int i,key,n;
+
+    cout<<"Enter the Key Number : ";
+    cin>>key;
+    cout<<"Enter the Length of Ciphertext :";
+    cin>>n;
+    cout<<"Enter the Characters of Ciphertext :";
+
+    for(i=0;i<n;i++)
+        cin>>p[i];
+
+    for(i=0;i<n;i++)
+    {
+        d= (p[i]-'A'-key+26)%26+'A';
+        cout<<p[i]-'A'<< " = "<< p[i]<< "  -------> "<< d << " = "<< (p[i]-'A'-key)%26<<"\n";
     }
-    h1, h2 {
-      color: #00ffcc;
+
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+
+        <section id="encryption2">
+            <h3>التشفير باستخدام string (String-Based Encryption)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('enc2')">نسخ</button>
+                <pre id="enc2">
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    string st;
+    char e;
+    int i,key;
+    cout<<"Enter the key Number : ";
+    cin>>key;
+    cout<<"Enter the Plaintext :";
+    cin>>st;
+    for(i=0;i<st.size();i++)
+    {
+        e= (st[i]-'A'+key) % 26+'A';
+        cout<<st[i]-'A'<< " = "<< st[i]<< "  -------> "<< e << " = "<< (st[i]-'A'+key)%26<<"\n";
     }
-    section {
-      margin-bottom: 40px;
+
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+
+        <section id="decryption2">
+            <h3>فك التشفير باستخدام string (String-Based Decryption)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('dec2')">نسخ</button>
+                <pre id="dec2">
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    string st;
+    char d;
+    int i,key;
+
+    cout<<"Enter the Key Number : ";
+    cin>>key;
+    cout<<"Enter the Plaintext :";
+    cin>>st;
+
+    for(i=0;i<st.size();i++)
+    {
+        d= (st[i]-'A'-key+26) % 26+'A';
+        cout<<st[i]-'A'<< " = "<< st[i]<< "  -------> "<< d << " = "<< (st[i]-'A'-key+26)%26<<"\n";
     }
-    pre {
-      background: #2d2d2d;
-      padding: 15px;
-      border-radius: 10px;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      position: relative;
+
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+
+        <section id="encryption3">
+            <h3>التشفير باستخدام ASCII المباشر (Direct ASCII Encryption)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('enc3')">نسخ</button>
+                <pre id="enc3">
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    string s,ch;
+    int i, e, key;
+    cout<<"Enter the Key Number : ";
+    cin>>key;
+    cout<<"Enter the Plaintext : ";
+    cin>>s;
+
+    for(i=0;i<s.size();i++)
+    {
+        e=(int(s[i]) + key );
+        if (e>90) e=e -26;
+        cout<<s[i]<< " = "<< int(s[i])<< "  -------> "<< e << " = "<< char(e)<<"\n";
+        ch=ch+char(e);
     }
-    button {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: #00ffcc;
-      color: #000;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 5px;
+    cout<<"\nEncrypted Message is : "<<ch<<"\n";
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+
+        <section id="decryption3">
+            <h3>فك التشفير باستخدام ASCII المباشر (Direct ASCII Decryption)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('dec3')">نسخ</button>
+                <pre id="dec3">
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    string s,ch;
+    int i, d, key;
+    cout<<"Enter the Key Number : ";
+    cin>>key;
+    cout<<"Enter the Ciphertext : ";
+    cin>>s;
+
+    for(i=0;i<s.size();i++)
+    {
+        d=(int(s[i]) - key );
+        if (d<65) d=d+26;
+        cout<<s[i]<< " = "<< int(s[i])<< "  -------> "<< d << " = "<< char(d)<<"\n";
+        ch=ch+char(d);
     }
-    .code-box {
-      position: relative;
-      margin-bottom: 20px;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    ul li {
-      padding: 5px 0;
-    }
-  </style>
-</head>
-<body>
+    cout<<"\n The Plaintext is : "<<ch<<"\n";
 
-  <h1>مكتبة الأكواد البرمجية</h1>
+    return 0;
+}
+                </pre>
+            </div>
+        </section>
+    </section>
 
-  <!-- جدول المحتويات -->
-  <h2>جدول المحتويات</h2>
-  <ul>
-    <li><a href="#python">1. Python</a></li>
-    <li><a href="#encryption">2. Encryption</a></li>
-    <li><a href="#database">3. Database</a></li>
-    <li><a href="#web">4. Web</a></li>
-    <li><a href="#os">5. OS</a></li>
-  </ul>
+    <section id="Database">
+        <h2>Database</h2>
+        <p>أكواد خاصة بقاعدة البيانات</p>
+    </section>
 
-  <!-- قسم Python -->
-  <section id="python">
-    <h2>🔹 أكواد Python</h2>
-    <div class="code-box">
-      <button onclick="copyCode('py1')">نسخ</button>
-      <pre id="py1">
-def greet(name):
-    print(f"Hello, {name}!")
-      </pre>
-    </div>
-  </section>
+    <section id="Web">
+        <h2>ويب</h2>
+        <p>أكواد خاصة بتطوير الويب</p>
+    </section>
 
-  <!-- قسم Encryption -->
-  <section id="encryption">
-    <h2>🔹 أكواد التشفير</h2>
-    <div class="code-box">
-      <button onclick="copyCode('enc1')">نسخ</button>
-      <pre id="enc1">
-from cryptography.fernet import Fernet
-
-key = Fernet.generate_key()
-cipher = Fernet(key)
-
-text = "Secret message"
-cipher_text = cipher.encrypt(text.encode())
-print(cipher_text)
-      </pre>
-    </div>
-  </section>
-
-  <!-- قسم Database -->
-  <section id="database">
-    <h2>🔹 أكواد قواعد البيانات</h2>
-    <div class="code-box">
-      <button onclick="copyCode('db1')">نسخ</button>
-      <pre id="db1">
-import sqlite3
-
-connection = sqlite3.connect('example.db')
-cursor = connection.cursor()
-
-cursor.execute('''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)''')
-cursor.execute('''INSERT INTO users (name) VALUES ('John Doe')''')
-connection.commit()
-connection.close()
-      </pre>
-    </div>
-  </section>
-
-  <!-- قسم Web -->
-  <section id="web">
-    <h2>🔹 أكواد Web</h2>
-    <div class="code-box">
-      <button onclick="copyCode('web1')">نسخ</button>
-      <pre id="web1">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;&lt;title&gt;Hello&lt;/title&gt;&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Welcome!&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-      </pre>
-    </div>
-  </section>
-
-  <!-- قسم OS -->
-  <section id="os">
-    <h2>🔹 أكواد النظام (OS)</h2>
-    <div class="code-box">
-      <button onclick="copyCode('os1')">نسخ</button>
-      <pre id="os1">
-import os
-
-# طباعة جميع الملفات في الدليل الحالي
-files = os.listdir('.')
-for file in files:
-    print(file)
-      </pre>
-    </div>
-  </section>
-
-  <script>
-    function copyCode(id) {
-      const text = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("✅ تم نسخ الكود!");
-      });
-    }
-  </script>
+    <section id="OS">
+        <h2>نظام التشغيل</h2>
+        <p>أكواد خاصة بنظام التشغيل</p>
+    </section>
 
 </body>
 </html>
