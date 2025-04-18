@@ -5,29 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أكواد البرمجة</title>
     <style>
-        body { font-family: Arial, sans-serif; direction: rtl; }
-        h2 { color: #2E8B57; }
-        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; }
-        button { margin-top: 10px; background-color: #4CAF50; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #45a049; }
-        .code-box { margin-bottom: 20px; }
-        nav ul { list-style-type: none; padding: 0; }
-        nav ul li { display: inline; margin-right: 20px; }
+        body { font-family: Arial, sans-serif; direction: rtl; padding: 20px; }
+        h1 { color: #333; }
+        nav ul { list-style: none; padding: 0; margin-bottom: 30px; }
+        nav ul li { display: inline; margin-left: 15px; }
         nav a { text-decoration: none; color: #4CAF50; font-weight: bold; }
         nav a:hover { color: #45a049; }
+        section { margin-bottom: 40px; }
+        h2 { color: #2E8B57; margin-bottom: 10px; }
+        h3 { color: #3E5F8A; margin-top: 20px; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        .code-box { position: relative; margin-top: 10px; }
+        .code-box button {
+            position: absolute; top: 10px; left: 10px;
+            background: #4CAF50; color: #fff; border: none;
+            padding: 5px 10px; border-radius: 3px; cursor: pointer;
+        }
+        .code-box button:hover { background: #45a049; }
+        ul.topics { list-style: none; padding: 0; }
+        ul.topics li { margin: 5px 0; }
     </style>
     <script>
         function copyCode(id) {
-            var copyText = document.getElementById(id);
-            var range = document.createRange();
-            range.selectNode(copyText);
+            const el = document.getElementById(id);
+            const range = document.createRange();
+            range.selectNode(el);
             window.getSelection().removeAllRanges();
             window.getSelection().addRange(range);
-            document.execCommand("copy");
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert('✅ تم نسخ الكود!');
         }
     </script>
 </head>
 <body>
+
     <h1>أكواد البرمجة</h1>
 
     <nav>
@@ -40,20 +52,201 @@
         </ul>
     </nav>
 
+    <!-- قسم Python -->
     <section id="Python">
         <h2>Python</h2>
-        <p>أكواد خاصة بلغة البرمجة Python</p>
+        <ul class="topics">
+            <li><a href="#py-linear">1. البحث الخطي (Linear Search)</a></li>
+            <li><a href="#py-bst">2. شجرة البحث الثنائية (BST)</a></li>
+            <li><a href="#py-linkedlist">3. القائمة المرتبطة (Linked List)</a></li>
+            <li><a href="#py-recursion">4. التكرار (Recursion)</a></li>
+            <li><a href="#py-quicksort">5. الترتيب السريع (QuickSort)</a></li>
+        </ul>
+
+        <section id="py-linear">
+            <h3>البحث الخطي (Linear Search)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('code-linear')">نسخ</button>
+                <pre id="code-linear">
+def linear_search(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+    return -1
+
+# استخدام
+arr = [4, 2, 7, 1]
+print(linear_search(arr, 7))  # الناتج: 2
+                </pre>
+            </div>
+        </section>
+
+        <section id="py-bst">
+            <h3>شجرة البحث الثنائية (BST – Insertion + Search)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('code-bst')">نسخ</button>
+                <pre id="code-bst">
+class Node:
+    def __init__(self, key):
+        self.data = key
+        self.left = None
+        self.right = None
+
+def insert(root, key):
+    if root is None:
+        return Node(key)
+    if key < root.data:
+        root.left = insert(root.left, key)
+    else:
+        root.right = insert(root.right, key)
+    return root
+
+def search(root, key):
+    if root is None or root.data == key:
+        return root
+    if key < root.data:
+        return search(root.left, key)
+    return search(root.right, key)
+
+# استخدام
+root = None
+root = insert(root, 50)
+insert(root, 30)
+insert(root, 70)
+print(search(root, 70) is not None)  # True
+                </pre>
+            </div>
+        </section>
+
+        <section id="py-linkedlist">
+            <h3>القائمة المرتبطة (Linked List – Insert + Display)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('code-linked')">نسخ</button>
+                <pre id="code-linked">
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_end(self, data):
+        node = Node(data)
+        if self.head is None:
+            self.head = node
+        else:
+            temp = self.head
+            while temp.next:
+                temp = temp.next
+            temp.next = node
+
+    def display(self):
+        temp = self.head
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+        print("None")
+
+# استخدام
+ll = LinkedList()
+ll.insert_at_end(10)
+ll.insert_at_end(20)
+ll.display()  # 10 -> 20 -> None
+                </pre>
+            </div>
+        </section>
+
+        <section id="py-recursion">
+            <h3>التكرار (Recursion)</h3>
+
+            <h4>أ. المضروب (Factorial)</h4>
+            <div class="code-box">
+                <button onclick="copyCode('code-fact')">نسخ</button>
+                <pre id="code-fact">
+class FactorialCalculator:
+    def factorial(self, n):
+        if n <= 1:
+            return 1
+        return n * self.factorial(n - 1)
+
+# استخدام
+f = FactorialCalculator()
+print(f.factorial(5))  # 120
+                </pre>
+            </div>
+
+            <h4>ب. جمع الأعداد الطبيعية</h4>
+            <div class="code-box">
+                <button onclick="copyCode('code-sum')">نسخ</button>
+                <pre id="code-sum">
+class RecursiveSum:
+    def sum(self, n):
+        if n <= 0:
+            return 0
+        return n + self.sum(n - 1)
+
+# استخدام
+s = RecursiveSum()
+print(s.sum(5))  # 15
+                </pre>
+            </div>
+
+            <h4>ج. القوة (Power)</h4>
+            <div class="code-box">
+                <button onclick="copyCode('code-power')">نسخ</button>
+                <pre id="code-power">
+class PowerCalculator:
+    def power(self, base, exp):
+        if exp == 0:
+            return 1
+        return base * self.power(base, exp - 1)
+
+# استخدام
+p = PowerCalculator()
+print(p.power(2, 3))  # 8
+                </pre>
+            </div>
+        </section>
+
+        <section id="py-quicksort">
+            <h3>خوارزمية الترتيب السريع (QuickSort)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('code-qsort')">نسخ</button>
+                <pre id="code-qsort">
+class QuickSort:
+    def quicksort(self, arr):
+        if len(arr) <= 1:
+            return arr
+        pivot = arr[len(arr) // 2]
+        left = [x for x in arr if x < pivot]
+        middle = [x for x in arr if x == pivot]
+        right = [x for x in arr if x > pivot]
+        return self.quicksort(left) + middle + self.quicksort(right)
+
+# استخدام
+arr = [5, 2, 8, 10, 3, 0, 4]
+qs = QuickSort()
+print(qs.quicksort(arr))  # [0, 2, 3, 4, 5, 8, 10]
+                </pre>
+            </div>
+        </section>
     </section>
 
+    <!-- قسم التشفير -->
     <section id="Encryption">
         <h2>تشفير</h2>
-        <ul>
-            <li><a href="#encryption1">التشفير باستخدام مصفوفة (Array-Based Encryption)</a></li>
-            <li><a href="#decryption1">فك التشفير باستخدام مصفوفة (Array-Based Decryption)</a></li>
-            <li><a href="#encryption2">التشفير باستخدام string (String-Based Encryption)</a></li>
-            <li><a href="#decryption2">فك التشفير باستخدام string (String-Based Decryption)</a></li>
-            <li><a href="#encryption3">التشفير باستخدام ASCII المباشر (Direct ASCII Encryption)</a></li>
-            <li><a href="#decryption3">فك التشفير باستخدام ASCII المباشر (Direct ASCII Decryption)</a></li>
+        <ul class="topics">
+            <li><a href="#encryption1">1. Array-Based Encryption (C++)</a></li>
+            <li><a href="#decryption1">2. Array-Based Decryption (C++)</a></li>
+            <li><a href="#encryption2">3. String-Based Encryption (C++)</a></li>
+            <li><a href="#decryption2">4. String-Based Decryption (C++)</a></li>
+            <li><a href="#encryption3">5. Direct ASCII Encryption (C++)</a></li>
+            <li><a href="#decryption3">6. Direct ASCII Decryption (C++)</a></li>
+            <li><a href="#encryption-python">7. تشفير قيصر (Python)</a></li>
+            <li><a href="#decryption-python">8. فك تشفير قيصر (Python)</a></li>
+            <li><a href="#ascii-encryption-python">9. تشفير ASCII مباشر (Python)</a></li>
         </ul>
 
         <section id="encryption1">
@@ -76,7 +269,7 @@ int main()
     cout<<"Enter the Characters of Plaintext :";
 
     for(i=0;i<n;i++)
-        cin>>p[i];  
+        cin>>p[i];
 
     for(i=0;i<n;i++)
     {
@@ -246,18 +439,90 @@ int main()
                 </pre>
             </div>
         </section>
+
+        <section id="encryption-python">
+            <h3>تشفير قيصر (String-Based Encryption - Python)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('pyenc1')">نسخ</button>
+                <pre id="pyenc1">
+def encrypt(text, key):
+    result = ""
+    for char in text:
+        if char.isupper():
+            result += chr((ord(char) - 65 + key) % 26 + 65)
+        elif char.islower():
+            result += chr((ord(char) - 97 + key) % 26 + 97)
+        else:
+            result += char
+    return result
+
+# استخدام
+print(encrypt("HelloWorld", 3))  # KhoorZruog
+                </pre>
+            </div>
+        </section>
+
+        <section id="decryption-python">
+            <h3>فك تشفير قيصر (Python)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('pydec1')">نسخ</button>
+                <pre id="pydec1">
+def decrypt(text, key):
+    result = ""
+    for char in text:
+        if char.isupper():
+            result += chr((ord(char) - 65 - key + 26) % 26 + 65)
+        elif char.islower():
+            result += chr((ord(char) - 97 - key + 26) % 26 + 97)
+        else:
+            result += char
+    return result
+
+# استخدام
+print(decrypt("KhoorZruog", 3))  # HelloWorld
+                </pre>
+            </div>
+        </section>
+
+        <section id="ascii-encryption-python">
+            <h3>تشفير ASCII مباشر (Python)</h3>
+            <div class="code-box">
+                <button onclick="copyCode('pyencascii')">نسخ</button>
+                <pre id="pyencascii">
+def ascii_encrypt(text, key):
+    encrypted = ""
+    for char in text:
+        if char.isalpha():
+            shifted = ord(char) + key
+            if char.isupper() and shifted > ord('Z'):
+                shifted -= 26
+            elif char.islower() and shifted > ord('z'):
+                shifted -= 26
+            encrypted += chr(shifted)
+        else:
+            encrypted += char
+    return encrypted
+
+# استخدام
+print(ascii_encrypt("CyberSecurity", 4))  # GcfiwWigvymx
+                </pre>
+            </div>
+        </section>
     </section>
 
+    <!-- قسم Database -->
     <section id="Database">
         <h2>Database</h2>
         <p>أكواد خاصة بقاعدة البيانات</p>
     </section>
 
+    <!-- قسم Web -->
     <section id="Web">
         <h2>ويب</h2>
         <p>أكواد خاصة بتطوير الويب</p>
     </section>
 
+    <!-- قسم OS -->
     <section id="OS">
         <h2>نظام التشغيل</h2>
         <p>أكواد خاصة بنظام التشغيل</p>
