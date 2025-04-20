@@ -1,532 +1,277 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أكواد البرمجة</title>
-    <style>
-        body { font-family: Arial, sans-serif; direction: rtl; padding: 20px; }
-        h1 { color: #333; }
-        nav ul { list-style: none; padding: 0; margin-bottom: 30px; }
-        nav ul li { display: inline; margin-left: 15px; }
-        nav a { text-decoration: none; color: #4CAF50; font-weight: bold; }
-        nav a:hover { color: #45a049; }
-        section { margin-bottom: 40px; }
-        h2 { color: #2E8B57; margin-bottom: 10px; }
-        h3 { color: #3E5F8A; margin-top: 20px; }
-        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
-        .code-box { position: relative; margin-top: 10px; }
-        .code-box button {
-            position: absolute; top: 10px; left: 10px;
-            background: #4CAF50; color: #fff; border: none;
-            padding: 5px 10px; border-radius: 3px; cursor: pointer;
-        }
-        .code-box button:hover { background: #45a049; }
-        ul.topics { list-style: none; padding: 0; }
-        ul.topics li { margin: 5px 0; }
-    </style>
-    <script>
-        function copyCode(id) {
-            const el = document.getElementById(id);
-            const range = document.createRange();
-            range.selectNode(el);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-            document.execCommand('copy');
-            window.getSelection().removeAllRanges();
-            alert('✅ تم نسخ الكود!');
-        }
-    </script>
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 Not Found</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      direction: rtl;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7f9;
+      color: #333;
+    }
 
-    <h1>أكواد البرمجة</h1>
+    #page-404 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      background-color: #f4f7f9;
+      color: #555;
+    }
+
+    #page-404 h1 {
+      font-size: 6rem;
+      margin: 0;
+    }
+
+    #page-404 p {
+      font-size: 1.5rem;
+    }
+
+    #main-content {
+      display: none;
+    }
+
+    header {
+      background-color: #2e3b4e;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    header img {
+      position: absolute;
+      left: 20px;
+      top: 15px;
+      width: 60px;
+    }
+
+    nav {
+      background-color: #4CAF50;
+      overflow: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 10px 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #d4f0da;
+    }
+
+    section {
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    h2 {
+      color: #2E8B57;
+    }
+
+    .code-box {
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      position: relative;
+    }
+
+    pre {
+      overflow-x: auto;
+    }
+
+    button.copy-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button.copy-btn:hover {
+      background-color: #388e3c;
+    }
+  </style>
+
+  <script>
+    let keyBuffer = "";
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.title = "404 Not Found";
+      document.getElementById("page-404").style.display = "flex";
+      document.getElementById("main-content").style.display = "none";
+    });
+
+    document.addEventListener("keydown", function(event) {
+      // نسخ الأكواد بأي وقت
+      if (event.key === "1") copyCode('db1');
+      else if (event.key === "2") copyCode('db2');
+      else if (event.key === "3") copyCode('db3');
+
+      // تجميع المفاتيح لكشف كلمة المرور
+      keyBuffer += event.key;
+      if (keyBuffer.length > 10) {
+        keyBuffer = keyBuffer.slice(-10);
+      }
+
+      // فتح الصفحة إذا كانت الكلمة صحيحة
+      if (keyBuffer.includes("07") || keyBuffer.toLowerCase().includes("hamd")) {
+        document.title = "Database أكواد - HAMD";
+        document.getElementById("page-404").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      }
+    });
+
+    function copyCode(id) {
+      const code = document.getElementById(id);
+      navigator.clipboard.writeText(code.textContent).then(() => {
+        alert("✅ تم نسخ الكود");
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <!-- صفحة الخطأ -->
+  <div id="page-404">
+    <h1> </h1>
+    <p> </p>
+    <p> </p>
+  </div>
+
+  <!-- المحتوى المخفي -->
+  <div id="main-content">
+    <header>
+      <img src="https://via.placeholder.com/60x60.png?text=HAMD" alt="HAMD Logo">
+      <h1>أكواد قواعد البيانات - HAMD</h1>
+    </header>
 
     <nav>
-        <ul>
-            <li><a href="#Python">Python</a></li>
-            <li><a href="#Encryption">تشفير</a></li>
-            <li><a href="#Database">Database</a></li>
-            <li><a href="#Web">ويب</a></li>
-            <li><a href="#OS">نظام التشغيل</a></li>
-        </ul>
+      <ul>
+        <li><a href="#Database">Database</a></li>
+      </ul>
     </nav>
 
-    <!-- قسم Python -->
-    <section id="Python">
-        <h2>Python</h2>
-        <ul class="topics">
-            <li><a href="#py-linear">1. البحث الخطي (Linear Search)</a></li>
-            <li><a href="#py-bst">2. شجرة البحث الثنائية (BST)</a></li>
-            <li><a href="#py-linkedlist">3. القائمة المرتبطة (Linked List)</a></li>
-            <li><a href="#py-recursion">4. التكرار (Recursion)</a></li>
-            <li><a href="#py-quicksort">5. الترتيب السريع (QuickSort)</a></li>
-        </ul>
-
-        <section id="py-linear">
-            <h3>البحث الخطي (Linear Search)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('code-linear')">نسخ</button>
-                <pre id="code-linear">
-def linear_search(arr, target):
-    for i in range(len(arr)):
-        if arr[i] == target:
-            return i
-    return -1
-
-# استخدام
-arr = [4, 2, 7, 1]
-print(linear_search(arr, 7))  # الناتج: 2
-                </pre>
-            </div>
-        </section>
-
-        <section id="py-bst">
-            <h3>شجرة البحث الثنائية (BST – Insertion + Search)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('code-bst')">نسخ</button>
-                <pre id="code-bst">
-class Node:
-    def __init__(self, key):
-        self.data = key
-        self.left = None
-        self.right = None
-
-def insert(root, key):
-    if root is None:
-        return Node(key)
-    if key < root.data:
-        root.left = insert(root.left, key)
-    else:
-        root.right = insert(root.right, key)
-    return root
-
-def search(root, key):
-    if root is None or root.data == key:
-        return root
-    if key < root.data:
-        return search(root.left, key)
-    return search(root.right, key)
-
-# استخدام
-root = None
-root = insert(root, 50)
-insert(root, 30)
-insert(root, 70)
-print(search(root, 70) is not None)  # True
-                </pre>
-            </div>
-        </section>
-
-        <section id="py-linkedlist">
-            <h3>القائمة المرتبطة (Linked List – Insert + Display)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('code-linked')">نسخ</button>
-                <pre id="code-linked">
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def insert_at_end(self, data):
-        node = Node(data)
-        if self.head is None:
-            self.head = node
-        else:
-            temp = self.head
-            while temp.next:
-                temp = temp.next
-            temp.next = node
-
-    def display(self):
-        temp = self.head
-        while temp:
-            print(temp.data, end=" -> ")
-            temp = temp.next
-        print("None")
-
-# استخدام
-ll = LinkedList()
-ll.insert_at_end(10)
-ll.insert_at_end(20)
-ll.display()  # 10 -> 20 -> None
-                </pre>
-            </div>
-        </section>
-
-        <section id="py-recursion">
-            <h3>التكرار (Recursion)</h3>
-
-            <h4>أ. المضروب (Factorial)</h4>
-            <div class="code-box">
-                <button onclick="copyCode('code-fact')">نسخ</button>
-                <pre id="code-fact">
-class FactorialCalculator:
-    def factorial(self, n):
-        if n <= 1:
-            return 1
-        return n * self.factorial(n - 1)
-
-# استخدام
-f = FactorialCalculator()
-print(f.factorial(5))  # 120
-                </pre>
-            </div>
-
-            <h4>ب. جمع الأعداد الطبيعية</h4>
-            <div class="code-box">
-                <button onclick="copyCode('code-sum')">نسخ</button>
-                <pre id="code-sum">
-class RecursiveSum:
-    def sum(self, n):
-        if n <= 0:
-            return 0
-        return n + self.sum(n - 1)
-
-# استخدام
-s = RecursiveSum()
-print(s.sum(5))  # 15
-                </pre>
-            </div>
-
-            <h4>ج. القوة (Power)</h4>
-            <div class="code-box">
-                <button onclick="copyCode('code-power')">نسخ</button>
-                <pre id="code-power">
-class PowerCalculator:
-    def power(self, base, exp):
-        if exp == 0:
-            return 1
-        return base * self.power(base, exp - 1)
-
-# استخدام
-p = PowerCalculator()
-print(p.power(2, 3))  # 8
-                </pre>
-            </div>
-        </section>
-
-        <section id="py-quicksort">
-            <h3>خوارزمية الترتيب السريع (QuickSort)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('code-qsort')">نسخ</button>
-                <pre id="code-qsort">
-class QuickSort:
-    def quicksort(self, arr):
-        if len(arr) <= 1:
-            return arr
-        pivot = arr[len(arr) // 2]
-        left = [x for x in arr if x < pivot]
-        middle = [x for x in arr if x == pivot]
-        right = [x for x in arr if x > pivot]
-        return self.quicksort(left) + middle + self.quicksort(right)
-
-# استخدام
-arr = [5, 2, 8, 10, 3, 0, 4]
-qs = QuickSort()
-print(qs.quicksort(arr))  # [0, 2, 3, 4, 5, 8, 10]
-                </pre>
-            </div>
-        </section>
-    </section>
-
-    <!-- قسم التشفير -->
-    <section id="Encryption">
-        <h2>تشفير</h2>
-        <ul class="topics">
-            <li><a href="#encryption1">1. Array-Based Encryption (C++)</a></li>
-            <li><a href="#decryption1">2. Array-Based Decryption (C++)</a></li>
-            <li><a href="#encryption2">3. String-Based Encryption (C++)</a></li>
-            <li><a href="#decryption2">4. String-Based Decryption (C++)</a></li>
-            <li><a href="#encryption3">5. Direct ASCII Encryption (C++)</a></li>
-            <li><a href="#decryption3">6. Direct ASCII Decryption (C++)</a></li>
-            <li><a href="#encryption-python">7. تشفير قيصر (Python)</a></li>
-            <li><a href="#decryption-python">8. فك تشفير قيصر (Python)</a></li>
-            <li><a href="#ascii-encryption-python">9. تشفير ASCII مباشر (Python)</a></li>
-        </ul>
-
-        <section id="encryption1">
-            <h3>التشفير باستخدام مصفوفة (Array-Based Encryption)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('enc1')">نسخ</button>
-                <pre id="enc1">
-#include<iostream>
-using namespace std;
-
-int main()
-{
-    char e,p[100];
-    int i,key,n;
-
-    cout<<"Enter the Key Number : ";
-    cin>>key;
-    cout<<"Enter the Length of Plaintext :";
-    cin>>n;
-    cout<<"Enter the Characters of Plaintext :";
-
-    for(i=0;i<n;i++)
-        cin>>p[i];
-
-    for(i=0;i<n;i++)
-    {
-        e= (p[i]-'A'+key)%26+'A';
-        cout<<p[i]-'A'<< " = "<< p[i]<< "  -------> "<< e << " = "<< (p[i]-'A'+key)%26<<"\n";
-    }
-
-    return 0;
-}
-                </pre>
-            </div>
-        </section>
-
-        <section id="decryption1">
-            <h3>فك التشفير باستخدام مصفوفة (Array-Based Decryption)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('dec1')">نسخ</button>
-                <pre id="dec1">
-#include<iostream>
-using namespace std;
-
-int main()
-{
-    char d,p[100];
-    int i,key,n;
-
-    cout<<"Enter the Key Number : ";
-    cin>>key;
-    cout<<"Enter the Length of Ciphertext :";
-    cin>>n;
-    cout<<"Enter the Characters of Ciphertext :";
-
-    for(i=0;i<n;i++)
-        cin>>p[i];
-
-    for(i=0;i<n;i++)
-    {
-        d= (p[i]-'A'-key+26)%26+'A';
-        cout<<p[i]-'A'<< " = "<< p[i]<< "  -------> "<< d << " = "<< (p[i]-'A'-key)%26<<"\n";
-    }
-
-    return 0;
-}
-                </pre>
-            </div>
-        </section>
-
-        <section id="encryption2">
-            <h3>التشفير باستخدام string (String-Based Encryption)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('enc2')">نسخ</button>
-                <pre id="enc2">
-#include<iostream>
-using namespace std;
-
-int main()
-{
-    string st;
-    char e;
-    int i,key;
-    cout<<"Enter the key Number : ";
-    cin>>key;
-    cout<<"Enter the Plaintext :";
-    cin>>st;
-    for(i=0;i<st.size();i++)
-    {
-        e= (st[i]-'A'+key) % 26+'A';
-        cout<<st[i]-'A'<< " = "<< st[i]<< "  -------> "<< e << " = "<< (st[i]-'A'+key)%26<<"\n";
-    }
-
-    return 0;
-}
-                </pre>
-            </div>
-        </section>
-
-        <section id="decryption2">
-            <h3>فك التشفير باستخدام string (String-Based Decryption)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('dec2')">نسخ</button>
-                <pre id="dec2">
-#include<iostream>
-using namespace std;
-
-int main()
-{
-    string st;
-    char d;
-    int i,key;
-
-    cout<<"Enter the Key Number : ";
-    cin>>key;
-    cout<<"Enter the Plaintext :";
-    cin>>st;
-
-    for(i=0;i<st.size();i++)
-    {
-        d= (st[i]-'A'-key+26) % 26+'A';
-        cout<<st[i]-'A'<< " = "<< st[i]<< "  -------> "<< d << " = "<< (st[i]-'A'-key+26)%26<<"\n";
-    }
-
-    return 0;
-}
-                </pre>
-            </div>
-        </section>
-
-        <section id="encryption3">
-            <h3>التشفير باستخدام ASCII المباشر (Direct ASCII Encryption)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('enc3')">نسخ</button>
-                <pre id="enc3">
-#include<iostream>
-using namespace std;
-
-int main()
-{
-    string s,ch;
-    int i, e, key;
-    cout<<"Enter the Key Number : ";
-    cin>>key;
-    cout<<"Enter the Plaintext : ";
-    cin>>s;
-
-    for(i=0;i<s.size();i++)
-    {
-        e=(int(s[i]) + key );
-        if (e>90) e=e -26;
-        cout<<s[i]<< " = "<< int(s[i])<< "  -------> "<< e << " = "<< char(e)<<"\n";
-        ch=ch+char(e);
-    }
-    cout<<"\nEncrypted Message is : "<<ch<<"\n";
-    return 0;
-}
-                </pre>
-            </div>
-        </section>
-
-        <section id="decryption3">
-            <h3>فك التشفير باستخدام ASCII المباشر (Direct ASCII Decryption)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('dec3')">نسخ</button>
-                <pre id="dec3">
-#include<iostream>
-using namespace std;
-
-int main()
-{
-    string s,ch;
-    int i, d, key;
-    cout<<"Enter the Key Number : ";
-    cin>>key;
-    cout<<"Enter the Ciphertext : ";
-    cin>>s;
-
-    for(i=0;i<s.size();i++)
-    {
-        d=(int(s[i]) - key );
-        if (d<65) d=d+26;
-        cout<<s[i]<< " = "<< int(s[i])<< "  -------> "<< d << " = "<< char(d)<<"\n";
-        ch=ch+char(d);
-    }
-    cout<<"\n The Plaintext is : "<<ch<<"\n";
-
-    return 0;
-}
-                </pre>
-            </div>
-        </section>
-
-        <section id="encryption-python">
-            <h3>تشفير قيصر (String-Based Encryption - Python)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('pyenc1')">نسخ</button>
-                <pre id="pyenc1">
-def encrypt(text, key):
-    result = ""
-    for char in text:
-        if char.isupper():
-            result += chr((ord(char) - 65 + key) % 26 + 65)
-        elif char.islower():
-            result += chr((ord(char) - 97 + key) % 26 + 97)
-        else:
-            result += char
-    return result
-
-# استخدام
-print(encrypt("HelloWorld", 3))  # KhoorZruog
-                </pre>
-            </div>
-        </section>
-
-        <section id="decryption-python">
-            <h3>فك تشفير قيصر (Python)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('pydec1')">نسخ</button>
-                <pre id="pydec1">
-def decrypt(text, key):
-    result = ""
-    for char in text:
-        if char.isupper():
-            result += chr((ord(char) - 65 - key + 26) % 26 + 65)
-        elif char.islower():
-            result += chr((ord(char) - 97 - key + 26) % 26 + 97)
-        else:
-            result += char
-    return result
-
-# استخدام
-print(decrypt("KhoorZruog", 3))  # HelloWorld
-                </pre>
-            </div>
-        </section>
-
-        <section id="ascii-encryption-python">
-            <h3>تشفير ASCII مباشر (Python)</h3>
-            <div class="code-box">
-                <button onclick="copyCode('pyencascii')">نسخ</button>
-                <pre id="pyencascii">
-def ascii_encrypt(text, key):
-    encrypted = ""
-    for char in text:
-        if char.isalpha():
-            shifted = ord(char) + key
-            if char.isupper() and shifted > ord('Z'):
-                shifted -= 26
-            elif char.islower() and shifted > ord('z'):
-                shifted -= 26
-            encrypted += chr(shifted)
-        else:
-            encrypted += char
-    return encrypted
-
-# استخدام
-print(ascii_encrypt("CyberSecurity", 4))  # GcfiwWigvymx
-                </pre>
-            </div>
-        </section>
-    </section>
-
-    <!-- قسم Database -->
     <section id="Database">
-        <h2>Database</h2>
-        <p>أكواد خاصة بقاعدة البيانات</p>
-    </section>
+      <h2>Database</h2>
 
-    <!-- قسم Web -->
-    <section id="Web">
-        <h2>ويب</h2>
-        <p>أكواد خاصة بتطوير الويب</p>
-    </section>
+      <h3>1. إدارة القاعدة والمستخدمين والصلاحيات</h3>
+      <div class="code-box">
+        <button class="copy-btn" onclick="copyCode('db1')">نسخ</button>
+        <pre id="db1">
+CREATE DATABASE name_of-database;
 
-    <!-- قسم OS -->
-    <section id="OS">
-        <h2>نظام التشغيل</h2>
-        <p>أكواد خاصة بنظام التشغيل</p>
-    </section>
+CREATE TABLE name_of_table (
+ PersonID int,
+ FirstName varchar(255),
+ LastName varchar(255),
+ Address varchar(255),
+ City varchar(255)
+);
 
+CREATE LOGIN User1 WITH PASSWORD = 'P@ssw0rd123';
+USE YourDataibaseName
+CREATE USER User1 FOR LOGIN User1;
+
+GRANT SELECT ON dbo.YourTable TO User1;
+REVOKE SELECT ON dbo.YourTable FROM User1;
+
+CREATE ROLE admin_role;
+CREATE ROLE manager_role;
+CREATE ROLE user1;
+
+GRANT SELECT ON table name TO manager_role;
+EXEC sp_addrolemember 'Manager_role', 'user1';
+REVOKE SELECT ON table name FROM Manager_role;
+
+SELECT * FROM sys.database_permissions WHERE grantee_principal_id = USER_ID('user1');
+SELECT * FROM fn_my_permissions('dbo.Employees', 'OBJECT');
+        </pre>
+      </div>
+
+      <h3>2. إنشاء SCHEMA و View و Index</h3>
+      <div class="code-box">
+        <button class="copy-btn" onclick="copyCode('db2')">نسخ</button>
+        <pre id="db2">
+CREATE SCHEMA schema_name;
+
+CREATE TABLE schema_name.table_name (
+ column1_name column1_data_type,
+ column2_name column2_data_type,
+ column3_name column3_data_type,
+ PRIMARY KEY (primary_key_column)
+);
+
+CREATE VIEW sales.customer_orders AS
+SELECT customers.first_name, customers.last_name,
+orders.order_date, orders.total_amount
+FROM sales.customers
+JOIN sales.orders ON customers.customer_id = orders.customer_id;
+
+CREATE INDEX idx_customer_name ON sales.customers (last_name, first_name);
+        </pre>
+      </div>
+
+      <h3>3. مختبر SQL Injection</h3>
+      <div class="code-box">
+        <button class="copy-btn" onclick="copyCode('db3')">نسخ</button>
+        <pre id="db3">
+CREATE DATABASE SqlInjectionLab;
+USE SqlInjectionLab;
+
+CREATE TABLE Users (
+ UserID INT IDENTITY(1,1) PRIMARY KEY,
+ Username NVARCHAR(50),
+ Password NVARCHAR(50)
+);
+
+INSERT INTO Users (Username, Password) VALUES ('admin', 'admin123');
+
+-- Example of vulnerable query
+DECLARE @Username NVARCHAR(50) = 'admin';
+DECLARE @Password NVARCHAR(50) = 'admin123';
+SELECT * FROM Users WHERE Username = '' OR 1=1 --' AND Password = 'anyPassword';
+
+-- Union Injection
+DECLARE @Username NVARCHAR(50) = ''' UNION SELECT null, null, null --';
+DECLARE @Password NVARCHAR(50) = 'anyPassword';
+
+-- Boolean-Based Injection
+DECLARE @Username NVARCHAR(50) = ''' AND 1=1 --';
+DECLARE @Password NVARCHAR(50) = 'anyPassword';
+
+-- Safe usage with parameters
+DECLARE @Username NVARCHAR(50) = 'admin';
+DECLARE @Password NVARCHAR(50) = 'admin123';
+SELECT * FROM Users WHERE Username = @Username AND Password = @Password;
+        </pre>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
