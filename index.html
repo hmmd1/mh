@@ -1,277 +1,292 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 Not Found</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أكواد برمجة الويب - HAMD</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      direction: rtl;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f7f9;
-      color: #333;
-    }
-
-    #page-404 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-      background-color: #f4f7f9;
-      color: #555;
-    }
-
-    #page-404 h1 {
-      font-size: 6rem;
-      margin: 0;
-    }
-
-    #page-404 p {
-      font-size: 1.5rem;
-    }
-
-    #main-content {
-      display: none;
-    }
-
-    header {
-      background-color: #2e3b4e;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      position: relative;
-    }
-
-    header img {
-      position: absolute;
-      left: 20px;
-      top: 15px;
-      width: 60px;
-    }
-
-    nav {
-      background-color: #4CAF50;
-      overflow: auto;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    nav ul li {
-      display: inline-block;
-      margin: 10px 15px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #d4f0da;
-    }
-
-    section {
-      padding: 20px;
-      border-bottom: 1px solid #ccc;
-    }
-
-    h2 {
-      color: #2E8B57;
-    }
-
-    .code-box {
-      background: #f9f9f9;
-      border: 1px solid #ccc;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 15px 0;
-      position: relative;
-    }
-
-    pre {
-      overflow-x: auto;
-    }
-
-    button.copy-btn {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      padding: 5px 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button.copy-btn:hover {
-      background-color: #388e3c;
-    }
+    /* الأنماط تبقى كما هي من الإصدار السابق */
+    body { font-family: Arial, sans-serif; direction: rtl; margin: 0; padding: 0; background: #f0f2f5; }
+    #page-404 { display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; background: #fff; }
+    #main-content { display: none; padding: 20px; }
+    .worksheet { background: white; border-radius: 10px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .code-container { position: relative; margin: 15px 0; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
+    .copy-btn { position: absolute; left: 10px; top: 10px; padding: 8px 15px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s; }
+    .copy-btn:hover { background: #45a049; }
+    pre { background: #f8f9fa; padding: 20px; margin: 0; overflow-x: auto; font-family: 'Courier New', monospace; }
+    .code-header { background: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd; }
+    .code-number { background: #e74c3c; color: white; padding: 3px 8px; border-radius: 4px; }
   </style>
-
-  <script>
-    let keyBuffer = "";
-
-    document.addEventListener("DOMContentLoaded", function() {
-      document.title = "404 Not Found";
-      document.getElementById("page-404").style.display = "flex";
-      document.getElementById("main-content").style.display = "none";
-    });
-
-    document.addEventListener("keydown", function(event) {
-      // نسخ الأكواد بأي وقت
-      if (event.key === "1") copyCode('db1');
-      else if (event.key === "2") copyCode('db2');
-      else if (event.key === "3") copyCode('db3');
-
-      // تجميع المفاتيح لكشف كلمة المرور
-      keyBuffer += event.key;
-      if (keyBuffer.length > 10) {
-        keyBuffer = keyBuffer.slice(-10);
-      }
-
-      // فتح الصفحة إذا كانت الكلمة صحيحة
-      if (keyBuffer.includes("07") || keyBuffer.toLowerCase().includes("hamd")) {
-        document.title = "Database أكواد - HAMD";
-        document.getElementById("page-404").style.display = "none";
-        document.getElementById("main-content").style.display = "block";
-      }
-    });
-
-    function copyCode(id) {
-      const code = document.getElementById(id);
-      navigator.clipboard.writeText(code.textContent).then(() => {
-        
-      });
-    }
-  </script>
 </head>
-
 <body>
-  <!-- صفحة الخطأ -->
-  <div id="page-404">
-    <h1> </h1>
-    <p> </p>
-    <p> </p>
+
+<div id="page-404">
+  <h1></h1>
+  <p>  </p>
+  <p style="color: #27ae60; font-weight: bold;"> </p>
+</div>
+
+<div id="main-content">
+  <h1> HAMD</h1>
+
+  <!-- الكود 1 -->
+  <div class="worksheet">
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-number">الكود 1</span>
+      </div>
+      <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;CS 142 Project 1&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: Tahoma; font-size: 13px; }
+    table.main-table { width: 100%; border-collapse: collapse; }
+    thead tr { background: #687291; color: white; }
+    tbody tr:nth-child(odd) { background: #eeeff2; }
+    tbody tr:nth-child(even) { background: #dfe1e7; }
+    td, th { border-bottom: 1px solid white; padding: 8px; }
+    .total-row { display: none; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;table class="main-table"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th&gt;Item&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;th&gt;Quantity&lt;/th&gt;&lt;th&gt;Price&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Keyboard&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;$40&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Mouse&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;$10&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
   </div>
 
-  <!-- المحتوى المخفي -->
-  <div id="main-content">
-    <header>
-      <img src="https://via.placeholder.com/60x60.png?text=HAMD" alt="HAMD Logo">
-      <h1>أكواد قواعد البيانات - HAMD</h1>
-    </header>
-
-    <nav>
-      <ul>
-        <li><a href="#Database">Database</a></li>
-      </ul>
-    </nav>
-
-    <section id="Database">
-      <h2>Database</h2>
-
-      <h3>1. إدارة القاعدة والمستخدمين والصلاحيات</h3>
-      <div class="code-box">
-        <button class="copy-btn" onclick="copyCode('db1')">نسخ</button>
-        <pre id="db1">
-CREATE DATABASE name_of-database;
-
-CREATE TABLE name_of_table (
- PersonID int,
- FirstName varchar(255),
- LastName varchar(255),
- Address varchar(255),
- City varchar(255)
-);
-
-CREATE LOGIN User1 WITH PASSWORD = 'P@ssw0rd123';
-USE YourDataibaseName
-CREATE USER User1 FOR LOGIN User1;
-
-GRANT SELECT ON dbo.YourTable TO User1;
-REVOKE SELECT ON dbo.YourTable FROM User1;
-
-CREATE ROLE admin_role;
-CREATE ROLE manager_role;
-CREATE ROLE user1;
-
-GRANT SELECT ON table name TO manager_role;
-EXEC sp_addrolemember 'Manager_role', 'user1';
-REVOKE SELECT ON table name FROM Manager_role;
-
-SELECT * FROM sys.database_permissions WHERE grantee_principal_id = USER_ID('user1');
-SELECT * FROM fn_my_permissions('dbo.Employees', 'OBJECT');
-        </pre>
+  <!-- الكود 2 -->
+  <div class="worksheet">
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-number">الكود 2</span>
       </div>
-
-      <h3>2. إنشاء SCHEMA و View و Index</h3>
-      <div class="code-box">
-        <button class="copy-btn" onclick="copyCode('db2')">نسخ</button>
-        <pre id="db2">
-CREATE SCHEMA schema_name;
-
-CREATE TABLE schema_name.table_name (
- column1_name column1_data_type,
- column2_name column2_data_type,
- column3_name column3_data_type,
- PRIMARY KEY (primary_key_column)
-);
-
-CREATE VIEW sales.customer_orders AS
-SELECT customers.first_name, customers.last_name,
-orders.order_date, orders.total_amount
-FROM sales.customers
-JOIN sales.orders ON customers.customer_id = orders.customer_id;
-
-CREATE INDEX idx_customer_name ON sales.customers (last_name, first_name);
-        </pre>
-      </div>
-
-      <h3>3. مختبر SQL Injection</h3>
-      <div class="code-box">
-        <button class="copy-btn" onclick="copyCode('db3')">نسخ</button>
-        <pre id="db3">
-CREATE DATABASE SqlInjectionLab;
-USE SqlInjectionLab;
-
-CREATE TABLE Users (
- UserID INT IDENTITY(1,1) PRIMARY KEY,
- Username NVARCHAR(50),
- Password NVARCHAR(50)
-);
-
-INSERT INTO Users (Username, Password) VALUES ('admin', 'admin123');
-
--- Example of vulnerable query
-DECLARE @Username NVARCHAR(50) = 'admin';
-DECLARE @Password NVARCHAR(50) = 'admin123';
-SELECT * FROM Users WHERE Username = '' OR 1=1 --' AND Password = 'anyPassword';
-
--- Union Injection
-DECLARE @Username NVARCHAR(50) = ''' UNION SELECT null, null, null --';
-DECLARE @Password NVARCHAR(50) = 'anyPassword';
-
--- Boolean-Based Injection
-DECLARE @Username NVARCHAR(50) = ''' AND 1=1 --';
-DECLARE @Password NVARCHAR(50) = 'anyPassword';
-
--- Safe usage with parameters
-DECLARE @Username NVARCHAR(50) = 'admin';
-DECLARE @Password NVARCHAR(50) = 'admin123';
-SELECT * FROM Users WHERE Username = @Username AND Password = @Password;
-        </pre>
-      </div>
-    </section>
+      <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Get User Input&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;form action="message.php" method="post"&gt;
+    &lt;label for="username"&gt;Enter your name:&lt;/label&gt;
+    &lt;input type="text" id="username" name="username" required&gt;
+    &lt;input type="submit" value="Submit"&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
   </div>
+
+  <!-- الكود 3 -->
+  <div class="worksheet">
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-number">الكود 3</span>
+      </div>
+      <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      <pre><code>&lt;?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST['username']);
+    echo "&lt;h1&gt;Hello, $name! Welcome to our site.&lt;/h1&gt;";
+} else {
+    echo "&lt;h1&gt;No name provided!&lt;/h1&gt;";
+}
+?&gt;</code></pre>
+    </div>
+  </div>
+
+  <!-- الكود 4 -->
+  <div class="worksheet">
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-number">الكود 4</span>
+      </div>
+      <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Quiz&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;form action="check.php" method="post"&gt;
+    &lt;label for="answer"&gt;What is the capital of Iraq?&lt;/label&gt;&lt;br&gt;
+    &lt;input type="text" id="answer" name="answer" required&gt;
+    &lt;input type="submit" value="Submit"&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+  <!-- الكود 5 -->
+  <div class="worksheet">
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-number">الكود 5</span>
+      </div>
+      <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      <pre><code>&lt;?php
+if (isset($_POST['answer'])) {
+    $ans = strtolower(trim($_POST['answer']));
+    if ($ans == "baghdad" || $ans == "بغداد") {
+        echo "&lt;h2&gt;Congratulations!&lt;/h2&gt;";
+    } else {
+        echo "&lt;h2&gt;Sorry, try again.&lt;/h2&gt;";
+    }
+} else {
+    echo "&lt;h2&gt;No answer received!&lt;/h2&gt;";
+}
+?&gt;</code></pre>
+    </div>
+  </div>
+
+  <!-- الكود 6 -->
+  <div class="worksheet">
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-number">الكود 6</span>
+      </div>
+      <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Lab 1-1&lt;/title&gt;
+  &lt;style&gt;body { font-family: Arial, sans-serif; }&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h3&gt;CIW JavaScript Specialist&lt;/h3&gt;
+  &lt;hr&gt;
+  &lt;script&gt;
+    document.write("Browser: " + navigator.appName);
+    document.write("&lt;p&gt;Version: " + navigator.appVersion + "&lt;/p&gt;");
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+  <!-- الكود 7 -->
+  <div class="worksheet">
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-number">الكود 7</span>
+      </div>
+      <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;title&gt;Alert Example&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;The Window Object&lt;/h1&gt;
+  &lt;h2&gt;The alert() Method&lt;/h2&gt;
+  &lt;p&gt;Click the button:&lt;/p&gt;
+  &lt;button onclick="myFunction()"&gt;Click Here&lt;/button&gt;
+  &lt;script&gt;
+    function myFunction() { alert("Hello!\\nHow are you?"); }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+  <!-- الكود 8 -->
+  <div class="worksheet">
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-number">الكود 8</span>
+      </div>
+      <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Endless Alert&lt;/title&gt;&lt;/head&gt;
+&lt;script&gt;
+function showAlert(){
+  alert("You can't escape! 😈");
+  showAlert();
+}
+&lt;/script&gt;
+&lt;body onload="showAlert()"&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+  <!-- الكود 9 -->
+  <div class="worksheet">
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-number">الكود 9</span>
+      </div>
+      <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Controlled Popups&lt;/title&gt;&lt;/head&gt;
+&lt;script&gt;
+let pid;
+function startPopups(){
+  pid = setInterval(()=&gt;window.open("https://example.com","_blank","width=400,height=300"),500);
+}
+function stopPopups(){
+  clearInterval(pid);
+  alert("Popups stopped!");
+}
+&lt;/script&gt;
+&lt;body&gt;
+  &lt;button onclick="startPopups()"&gt;Start&lt;/button&gt;
+  &lt;button onclick="stopPopups()"&gt;Stop&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let isUnlocked = false;
+let keyBuffer = "";
+
+document.addEventListener("keydown", function(event) {
+  keyBuffer += event.key;
+  if (keyBuffer.length > 10) keyBuffer = keyBuffer.slice(-10);
+
+  if (keyBuffer.includes("07")) {
+    isUnlocked = true;
+    document.title = "أكواد برمجة الويب - HAMD";
+    document.getElementById("page-404").style.display = "none";
+    document.getElementById("main-content").style.display = "block";
+  }
+});
+
+function copyCode(button) {
+  if (!isUnlocked) {
+    alert("❗ الرجاء إدخال كلمة المرور 07 أولاً!");
+    return;
+  }
+
+  const code = button.parentElement.querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(() => {
+    button.style.background = '#2ecc71';
+    button.innerText = '✓ تم النسخ';
+    setTimeout(() => {
+      button.style.background = '#4CAF50';
+      button.innerText = 'نسخ';
+    }, 2000);
+  });
+}
+</script>
+
 </body>
 </html>
